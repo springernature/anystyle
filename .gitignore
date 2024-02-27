@@ -1,0 +1,9 @@
+./doc
+lib/anystyle/parser/support/dict.kch
+lib/anystyle/parser/support/dict.dbm
+Gemfile.lock
+*.rbc
+*.swp
+/.bundle
+/coverage
+.ruby-version
