@@ -18,8 +18,6 @@ module Anystyle
         :training_data => File.expand_path('../../../../resources/train.txt', __FILE__)
       }.freeze
 
-      @defaults[:training_data].untaint
-
       @features = Feature.instances
       @feature = Hash.new { |h,k| h[k.to_sym] = features.detect { |f| f.name == k.to_sym } }
 
@@ -249,7 +247,7 @@ module Anystyle
       def input_to_s(input)
         case input
         when String
-          if !input.tainted? && input.length < 128 && File.exists?(input)
+          if input.length < 128 && File.exist?(input)
             f = File.open(input, 'r:UTF-8')
             f.read
           else

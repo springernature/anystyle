@@ -127,7 +127,7 @@ module Anystyle
 
       def truncate
         close
-        File.unlink(path) if File.exists?(path)
+        File.unlink(path) if File.exist?(path)
       end
 
       def open
@@ -135,7 +135,7 @@ module Anystyle
         when :kyoto
           at_exit { Anystyle.dictionary.close }
 
-          create unless File.exists?(path)
+          create unless File.exist?(path)
 
           @db = KyotoCabinet::DB.new
           unless @db.open(path, KyotoCabinet::DB::OREADER)
